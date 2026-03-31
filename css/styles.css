@@ -1,0 +1,529 @@
+/* ==========================================================================
+   1. RESET & BASE
+   ========================================================================== */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   2. TYPOGRAPHY #TODO: make this cleaner and more consistent
+   ========================================================================== */
+
+.hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(4rem, 12vw, 35rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.production-title {
+  margin-top: 7rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 40rem);
+  text-align: center;
+  color: #000;
+}
+
+.production-description {
+  font-size: clamp(1.25rem, 2vw, 3.8rem);
+  line-height: 1.6;
+  text-align: center;
+  color: #000;
+  width: 100%;
+  max-width: 4400px;
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   3. HEADER #TODO: make this cleaner and more consistent, all this spacing is sooo ugly and messy
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #000;
+  border-bottom: 1px solid #222;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.site-header.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 3rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 20rem;
+  margin-left: 180rem;
+}
+
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 4rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #FEF804;
+}
+
+.header-social {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.social-link svg {
+  width: 100px;
+  height: 100px;
+}
+
+.social-link {
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: #FEF804;
+}
+
+
+/* ==========================================================================
+   4. HEADER — LOGO SWITCHING
+   To change the logo, set data-logo="1", "2", or "3" on <header>.
+   ========================================================================== */
+
+.logo-link {
+  display: none;
+}
+
+.logo-img {
+  height: auto;
+  width: auto;
+}
+
+/* Logo 1 — left-aligned */
+[data-logo="1"] .logo-link--1 { display: block; transform: scale(0.85); transform-origin: left center;}
+[data-logo="1"] .header-inner { justify-content: space-between; }
+
+
+/* #TODO if necessary, fix this */
+/* Logo 2 — centered */
+/* [data-logo="2"] .logo-link--2 {
+  display: block;
+  transform: scale(0.85);
+  transform-origin: center;
+}
+[data-logo="2"] .logo-link--2 .logo-img {
+  height: 200px;
+  width: auto;
+}
+[data-logo="2"] .header-inner {
+  flex-wrap: nowrap;
+  gap: 1rem;
+  transform: translateY(0.35rem);
+}
+[data-logo="2"] .header-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+[data-logo="2"] .header-nav {
+  margin-left: auto;
+  margin-right: 2.5rem;
+} */
+
+/* Logo 3 — centered */
+/* [data-logo="3"] .logo-link--3 {
+  display: block;
+  transform: scale(0.85);
+  transform-origin: center;
+}
+[data-logo="3"] .logo-link--3 .logo-img {
+  height: 200px;
+  width: auto;
+}
+[data-logo="3"] .header-inner {
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  transform: translateY(0.35rem);
+}
+[data-logo="3"] .header-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+[data-logo="3"] .header-nav {
+  margin-left: auto;
+  margin-right: 2.5rem;
+} */
+
+
+/* ==========================================================================
+   5. SCREEN
+   ========================================================================== */
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+
+/* ==========================================================================
+   6. SCREEN 1 — HERO
+   ========================================================================== */
+
+.screen--hero {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  contain: layout paint;
+}
+
+.hero-heads {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.head-img {
+  margin-left: -15vw;
+  flex-shrink: 0;
+}
+
+.head-img:first-child {
+  margin-left: 0;
+}
+
+.hero-text-track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 61.5%;
+  bottom: 0;
+  z-index: 2;
+  background: #000;
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  transform: translateY(-100%);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-bubble {
+  position: absolute;
+  z-index: 10;
+  top: 1rem;
+  left: 2rem;
+  opacity: 0;
+  transform: translateY(-80px) scale(0.6);
+}
+
+.bubble-img {
+  transform: scale(0.85);
+  transform-origin: center center;
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 12rem;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  z-index: 12;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.scroll-cue.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.scroll-cue-arrow {
+  display: block;
+  width: 180px;
+  height: 180px;
+  border-right: 7px solid #FEF804;
+  border-bottom: 7px solid #FEF804;
+  transform: rotate(45deg);
+}
+
+
+/* ==========================================================================
+   7. SCREEN 1 — HERO ANIMATIONS
+   ========================================================================== */
+
+.hero-text-track.is-visible {
+  transform: translateY(0);
+}
+
+.hero-bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.4s ease,
+              transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* ==========================================================================
+   8. SCREEN 2 — CURRENT PRODUCTION 
+   ========================================================================== */
+
+.screen--production {
+  background: #FEF804;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 6rem 4rem;
+}
+
+.production-inner {
+  max-width: none;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* #TODO: fix for mobile */
+.production-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 6rem;
+  margin: 8rem auto 0;
+  width: 100%;
+  max-width: 4400px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.4vw, 6rem);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn--outline {
+  border: 10px solid #000;
+  background: transparent;
+  color: #000;
+  flex: 1;
+  min-width: 0;
+}
+
+.btn--outline:hover {
+  background: #000;
+  color: #FEF804;
+}
+
+.production-credits {
+  width: 100%;
+  max-width: 4400px;
+  margin: 3rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  text-align: left;
+}
+
+.credits-column {
+  color: #000;
+}
+
+.credits-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.6rem, 2vw, 6rem);
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+}
+
+.credits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: clamp(1.25rem, 2vw, 3.8rem);
+  line-height: 1.45;
+}
+
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+
+.site-footer {
+  background: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-inner {
+  max-width: 5500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.footer-forms {
+  display: flex;
+  gap: 4rem;
+  padding: 3rem 2rem;
+  text-align: left;
+}
+
+.footer-form-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.form-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #555;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;
+  padding: 0.5rem 0;
+  outline: none;
+  min-width: 400px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-bottom-color: #FEF804;
+}
+
+.footer-asset {
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.footer-asset-img {
+  opacity: 0.5;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   10. UTILITY / RESPONSIVE #TODO: make this cleaner and more consistent... unsure how mobile is.....
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .production-buttons {
+    flex-direction: column;
+    /* width: 100%; */
+    max-width: 4400px;
+    /* gap: 2rem;   */
+    margin: 2rem auto 0;
+  }
+
+  .btn--outline {
+    border: 2px solid #000;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-forms {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-asset {
+    align-self: flex-end;
+  }
+
+  .header-inner {
+    padding: 0.5rem 1rem;
+  }
+
+  [data-logo="2"] .header-inner,
+  [data-logo="3"] .header-inner {
+    transform: translateY(0.2rem);
+  }
+
+  .header-nav {
+    gap: 1rem;
+  }
+}

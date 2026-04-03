@@ -59,15 +59,21 @@
 
   function setupHeaderScroll() {
     if (!siteHeader || !heroSection) return;
+    let hasShownHeader = false;
 
     function onScroll() {
+      if (hasShownHeader) return;
+
       const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
       const threshold = heroBottom * CONFIG.headerScrollThreshold;
 
       if (window.scrollY > threshold) {
         siteHeader.classList.add("is-visible");
-      } else {
-        siteHeader.classList.remove("is-visible");
+        if (heroBubble) {
+          heroBubble.classList.remove("is-visible");
+        }
+        hasShownHeader = true;
+        window.removeEventListener("scroll", onScroll);
       }
     }
 

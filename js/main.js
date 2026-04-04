@@ -27,6 +27,7 @@
     if (!heroBubble) return;
 
     setTimeout(() => {
+      if (siteHeader && siteHeader.classList.contains("is-visible")) return;
       heroBubble.classList.add("is-visible");
     }, CONFIG.bubbleBounceDelay);
   }

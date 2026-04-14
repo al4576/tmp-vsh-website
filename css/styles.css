@@ -848,3 +848,50 @@ a {
     max-height: 160px;
   }
 }
+
+/* ==========================================================================
+   CONSTRUCTION PLACEHOLDER PAGES (construction.html?s=…)
+   ========================================================================== */
+
+.construction-body {
+  min-height: 100vh;
+}
+
+.construction-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem var(--site-pad-x) 4rem;
+  text-align: center;
+}
+
+.construction-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FEF804;
+  margin-bottom: 1rem;
+}
+
+.construction-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.construction-text {
+  font-size: var(--text-body);
+  line-height: var(--text-body-lh);
+  color: #adadad;
+  max-width: 28rem;
+}
+
+.construction-back {
+  margin-top: 2.5rem;
+}

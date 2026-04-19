@@ -668,36 +668,77 @@
   }
 }
 
+@keyframes archiveBannerHorizontalUnfurl {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 @media (max-width: 768px) {
   .archive-main {
     padding: 4rem 0 1.1rem;
   }
 
+  /* Mobile: banner becomes a horizontal bar at the top that unfurls from the left */
   .archive-banner.archive-banner--vertical {
-    left: 0.5rem;
-    top: 5.5rem;
-    bottom: 1.2rem;
-    width: 70px;
-  }
-
-  .archive-banner.archive-banner--vertical .archive-banner-text {
-    font-size: 1.45rem;
-    top: 0.55rem;
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: 2.6rem;
+    margin: -1.5rem 0 0.75rem;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
   }
 
   .archive-banner.archive-banner--vertical .archive-banner-bar {
-    width: 80%;
+    position: absolute;
+    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(2);
+    transform-origin: left center;
+    animation: archiveBannerHorizontalUnfurl 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    z-index: 1;
+  }
+
+  .archive-banner.archive-banner--vertical .archive-banner-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: 0.7em;
+    padding: 0 0.9rem;
+    z-index: 2;
   }
 
   .archive-banner.archive-banner--vertical .archive-banner-bubble {
-    width: 36px;
-    height: 36px;
-    bottom: 8px;
+    left: auto;
+    right: 0.6rem;
+    bottom: 50%;
+    width: 34px;
+    height: 34px;
+    transform: translateY(50%);
+    z-index: 2;
   }
 
   .archive-screen {
     padding: 1.2rem var(--site-pad-x, 1.5rem) 0.5rem;
   }
+
+  /* Mobile order: poster, synopsis, media */
+  .archive-card--poster { order: 1; }
+  .archive-card--synopsis { order: 2; }
+  .archive-card--media { order: 3; }
 
   .timeline-track {
     height: 66px;

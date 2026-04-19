@@ -145,12 +145,25 @@ a {
   display: none;
 }
 
+.header-logo {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
 .logo-img {
   max-height: 48px;
+  width: auto;
 }
 
 /* Logo 1 — left-aligned */
 [data-logo="1"] .logo-link--1 { display: block; transform: scale(0.85); transform-origin: left center; }
+
+/* Logo 2 — fallback visibility */
+[data-logo="2"] .logo-link--2 { display: block; transform: scale(0.85); transform-origin: left center; }
+
+/* Logo 3 — fallback visibility */
+[data-logo="3"] .logo-link--3 { display: block; transform: scale(0.85); transform-origin: left center; }
 
 
 /* #TODO if necessary, fix this */
@@ -568,6 +581,7 @@ a {
 
 .site-footer {
   background: #000;
+  color: #fff;
   position: relative;
   overflow: hidden;
   --footer-image-height: 236px;
@@ -683,7 +697,7 @@ a {
 
   [data-logo="2"] .header-inner,
   [data-logo="3"] .header-inner {
-    transform: translateY(0.2rem);
+    transform: none;
   }
 
   /* ---- HERO ---- */

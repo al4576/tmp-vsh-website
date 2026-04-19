@@ -209,7 +209,8 @@ a {
   margin: 0 auto;
   padding: 3rem var(--pad-x) 4rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Column balance: widen/narrow the text side with ratios, e.g. 1.2fr 0.8fr */
+  grid-template-columns: var(--info-grid-cols, 1fr 1fr);
   gap: 3rem;
   align-items: center;
 }
@@ -231,6 +232,10 @@ a {
   flex-direction: column;
   gap: 2rem;
   text-align: right;
+  /* Cap how wide the show-info paragraphs run (still right-aligned in the column). */
+  max-width: var(--info-text-max, min(40rem, 100%));
+  margin-left: auto;
+  min-width: 0;
 }
 
 .info-heading {
@@ -287,6 +292,7 @@ a {
   font-size: 0.95rem;
   line-height: 1.4;
   text-align: center;
+  color: #4a4a4a;
 }
 
 .credits-column--instagram .instagram-media {

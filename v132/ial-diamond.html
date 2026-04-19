@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IAL Diamond — V132</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header is-visible" id="siteHeader" data-logo="1">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="../index.html" class="logo-link logo-link--1">
+          <img src="../assets/logo-1.png" alt="The Varsity Show" class="logo-img">
+        </a>
+        <a href="../index.html" class="logo-link logo-link--2">
+          <img src="../assets/logo-2.png" alt="The Varsity Show" class="logo-img">
+        </a>
+        <a href="../index.html" class="logo-link logo-link--3">
+          <img src="../assets/logo-3.png" alt="The Varsity Show" class="logo-img">
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="../archive.html" class="nav-link">past</a>
+        <a href="index.html" class="nav-link">present</a>
+        <a href="https://securepay.cuit.columbia.edu/payment/pub/v132/" class="nav-link" target="_blank" rel="noopener noreferrer">future</a>
+      </nav>
+      <div class="header-social">
+        <a href="https://www.facebook.com/VarsityShow/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@thevarsityshow" class="social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.75 2h2.65a4.7 4.7 0 003.85 3.82v2.68a7.5 7.5 0 01-3.85-1.08v6.35a5.77 5.77 0 11-5.77-5.77c.37 0 .74.04 1.1.11v2.86a2.9 2.9 0 10 1.92 2.73V2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/thevarsityshow" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="diamond-page-main">
+    <section class="diamond-page-intro">
+      <h1>IAL Diamond Award</h1>
+      <p><em>Scroll to explore past recipients.</em></p>
+
+    </section>
+
+    <section class="diamond-scrolly" id="ial-diamond" aria-label="IAL Diamond">
+      <div class="diamond-scrolly-inner">
+        <div class="diamond-media-wrap">
+          <figure class="diamond-media">
+            <img id="diamondImage" class="is-hidden" src="" alt="">
+          </figure>
+        </div>
+        <div class="diamond-steps" id="diamondSteps">
+          <article class="diamond-step is-active">
+            <h3 class="diamond-name">IAL Diamond</h3>
+            <p class="diamond-details">Loading award history...</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-forms">
+        <div class="footer-form-group">
+          <h3 class="footer-form-title">alumni sign-up</h3>
+          <form class="footer-form" data-form="alumni">
+            <label class="form-label">
+              first name
+              <input type="text" name="first_name" class="form-input" autocomplete="given-name">
+            </label>
+            <label class="form-label">
+              last name
+              <input type="text" name="last_name" class="form-input" autocomplete="family-name">
+            </label>
+            <label class="form-label">
+              email
+              <input type="email" name="email" class="form-input" autocomplete="email">
+            </label>
+          </form>
+        </div>
+
+        <div class="footer-form-group">
+          <h3 class="footer-form-title">join the listserv</h3>
+          <form class="footer-form" data-form="listserv">
+            <label class="form-label">
+              first name
+              <input type="text" name="first_name" class="form-input" autocomplete="given-name">
+            </label>
+            <label class="form-label">
+              last name
+              <input type="text" name="last_name" class="form-input" autocomplete="family-name">
+            </label>
+            <label class="form-label">
+              email
+              <input type="email" name="email" class="form-input" autocomplete="email">
+            </label>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-asset">
+        <img src="../assets/footer-asset.png" alt="" class="footer-asset-img">
+      </div>
+    </div>
+  </footer>
+
+  <script src="scrolly-diamond.js"></script>
+</body>
+</html>
